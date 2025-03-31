@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="shipping_label_list" model="ir.ui.view">
+            <field name="name">shipping.label.list</field>
+            <field name="model">shipping.label</field>
+            <field name="type">list</field>
+            <field name="arch" type="xml">
+                <list string="Shipping Label List" create="false"></list>
+            </field>
+        </record>
+
+        <record id="shipping_labels_action" model="ir.actions.act_window">
+            <field name="name">Shipping Labels</field>
+            <field name="res_model">shipping.label</field>
+            <field name="view_mode">list,form</field>
+            <field name="view_id" ref="shipping_label_list" />
+            <field name="context">{'search_default_active_labels': 1}</field>
+            <field name="help" type="html">
+                <p>
+                    <img class="d-block m-auto pb-4" style="width:150px;" src="/printnode_base_lite/static/description/icon-pro.png" />
+                    Exclusive PRO Feature
+                </p>
+                <p>
+                    Sorry, this feature is locked in the Lite version.
+                    Upgrade to PRO to access all exclusive features and benefits.
+                </p>
+                <p>
+                    <a class="btn btn-primary" role="button" target="_blank" href="https://ecosystem.ventor.tech/product/basic-printing-package/">
+                        Upgrade to PRO Now
+                    </a>
+                </p>
+                <p>
+                    <a class="btn-outline-secondary" role="button" target="_blank" href="https://apps.odoo.com/apps/modules/18.0/printnode_base/">
+                        Odoo Apps
+                    </a>
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_shipping_labels"
+                  name="Shipping Labels"
+                  parent="menu_printnode"
+                  sequence="34"
+                  action="shipping_labels_action"
+        />
+
+    </data>
+</odoo>
